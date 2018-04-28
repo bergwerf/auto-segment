@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<!-- This adds some Maven crap from scijava to slow down your computer. -->
+	<parent>
+		<groupId>org.scijava</groupId>
+		<artifactId>pom-scijava</artifactId>
+		<version>17.1.1</version>
+		<relativePath />
+	</parent>
+
+	<groupId>com.hermanbergwerf</groupId>
+	<artifactId>imagej-auto-segment</artifactId>
+	<version>0.0.0</version>
+
+	<name>Auto Segment</name>
+	<description>Automated Segmentation using Deep Learning</description>
+	<url>https://github.com/bergwerf/auto-segment</url>
+	<inceptionYear>2018</inceptionYear>
+	<licenses>
+		<license>
+			<name>Apache Software License, Version 2.0</name>
+			<url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
+	<developers>
+		<developer>
+			<id>bergwerf</id>
+			<name>Herman Bergwerf</name>
+			<url>https://hermanbergwerf.com</url>
+		</developer>
+	</developers>
+	<contributors>
+		<contributor>
+			<name>Herman Bergwerf</name>
+			<properties><id>bergwerf</id></properties>
+			<roles><role>founder</role></roles>
+		</contributor>
+	</contributors>
+	<issueManagement>
+		<system>GitHub Issues</system>
+		<url>https://github.com/bergwerf/auto-segment/issues</url>
+	</issueManagement>
+
+
+	<!-- Required but a bit irrelevant -->
+	<organization>
+		<name>private</name>
+	</organization>
+	<ciManagement>
+		<system>none</system>
+	</ciManagement>
+	<mailingLists>
+		<mailingList>
+			<name>ImageJ Forum</name>
+			<archive>http://forum.imagej.net/</archive>
+		</mailingList>
+	</mailingLists>
+
+	<scm>
+		<connection>scm:git:git://github.com/bergwerf/auto-segment</connection>
+		<developerConnection>scm:git:git@github.com:bergwerf/auto-segment</developerConnection>
+		<tag>HEAD</tag>
+		<url>https://github.com/bergwerf/auto-segment</url>
+	</scm>
+
+	<properties>
+		<main-class>com.hermanbergwerf.autoSegment.Main</main-class>
+		<package-name>com.hermanbergwerf.autoSegment</package-name>
+		<license.licenseName>apache_v2</license.licenseName>
+		<license.copyrightOwners>Herman Bergwerf</license.copyrightOwners>
+		<!-- TODO: remove override once pom-scijava 17.2.0 is released. -->
+		<imagej-tensorflow.version>0.2.0</imagej-tensorflow.version>
+		<!-- NB: Deploy releases to the ImageJ Maven repository. -->
+		<releaseProfiles>deploy-to-imagej</releaseProfiles>
+    <!-- Get newer TensorFlow to fix missing features. -->
+    <tensorflow.version>1.6.0</tensorflow.version>
+	</properties>
+
+	<repositories>
+		<repository>
+			<id>imagej.public</id>
+			<url>https://maven.imagej.net/content/groups/public</url>
+		</repository>
+	</repositories>
+
+	<dependencies>
+		<dependency>
+			<groupId>net.imagej</groupId>
+			<artifactId>imagej</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>net.imagej</groupId>
+			<artifactId>imagej-tensorflow</artifactId>
+			<version>${imagej-tensorflow.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.tensorflow</groupId>
+			<artifactId>tensorflow</artifactId>
+			<version>${tensorflow.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.tensorflow</groupId>
+			<artifactId>proto</artifactId>
+			<version>${proto.version}</version>
+		</dependency>
+	</dependencies>
+</project>
