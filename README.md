@@ -1,4 +1,3 @@
 Auto-Segment plugin for ImageJ
 ==============================
-The code is based on the focus-quality plugin (source:
-https://github.com/fiji/microscope-image-quality).
+To compile and run, execute `mvn -Pexec` from the command line.
